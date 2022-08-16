@@ -1,0 +1,13 @@
+registry=https://pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/registry/ 
+                        
+always-auth=true
+
+; begin auth token
+//pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/registry/:username=Softobiztechnologies
+//pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/registry/:_password=Y25mbGdhNnJ0Y211YXQ1NW5qbXh5cWxxd2NoNWdqaGZrYm1oYWVtNWRtYnV0NnNwZGoycQ==
+//pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/registry/:email=npm requires email to be set but doesn't use the value
+//pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/:username=Softobiztechnologies
+//pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/:_password=Y25mbGdhNnJ0Y211YXQ1NW5qbXh5cWxxd2NoNWdqaGZrYm1oYWVtNWRtYnV0NnNwZGoycQ==
+//pkgs.dev.azure.com/Softobiztechnologies/4d77d632-ea34-4401-ba85-5fe0ab719e49/_packaging/generator-softobiz-nest-ms/npm/:email=npm requires email to be set but doesn't use the value
+; end auth token
+

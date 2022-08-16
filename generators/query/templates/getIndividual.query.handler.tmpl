@@ -1,0 +1,15 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { AppLoggerService, IRequestHandler, Result,UniqueEntityID} from '@softobiz-df/shared-lib';
+import { <%= namePascal %>Query } from './<%= nameSnake %>.query';
+import { <%= namePascal %>ReponseType } from './<%= nameSnake %>.response.type';
+
+@Injectable()
+export class <%= namePascal %>QueryHandler implements IRequestHandler<<%= namePascal %>Query, <%= namePascal %>ReponseType> {
+	private readonly _logger = AppLoggerService.getLogger(<%= namePascal %>QueryHandler)
+
+	constructor() {}
+
+	async handle(query: <%= namePascal %>Query, _token?: string){
+		
+	}
+}

@@ -1,0 +1,10 @@
+import { GenericAppError } from '@softobiz-df/shared-lib'
+
+export namespace <%= namePascal %>Errors {
+	export class <%= namePascal %>NotFound extends GenericAppError.NotFoundError {
+		constructor() {
+			super()
+			this.message = '<%= namePascal %> not found!'
+		}
+	}
+}

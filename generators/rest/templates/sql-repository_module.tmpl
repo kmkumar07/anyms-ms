@@ -1,0 +1,10 @@
+import { Module } from '@nestjs/common'
+import { I<%= namePascal %>Repository } from '../irepositories/i<%= nameCamel %>.repository'
+import { <%= namePascal %>SqlRepository } from './<%= nameCamel %>.repository'
+import { <%= namePascal %>SqlMapper } from './mappers/<%= nameCamel %>.mapper'
+
+@Module({
+	providers: [<%= namePascal %>SqlMapper,  <%= namePascal %>SqlRepositoryModule, { provide: I<%= namePascal %>Repository, useClass: <%= namePascal %>SqlRepository }],
+	exports: [{ provide: I<%= namePascal %>Repository, useClass: <%= namePascal %>SqlRepository }],
+})
+export class <%= namePascal %>SqlRepositoryModule {}

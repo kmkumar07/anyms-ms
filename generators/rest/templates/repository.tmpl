@@ -1,0 +1,14 @@
+import { Injectable } from '@nestjs/common'
+import { Result, UniqueEntityID } from '@softobiz-df/shared-lib'
+import { <%= namePascal %> } from 'src/domain/user/<%= nameCamel %>'
+import { EntityManager, IsNull, Not } from 'typeorm'
+import { I<%= namePascal %>Repository } from '../irepositories/i<%= nameCamel %>.repository'
+import {<%= namePascal %>SqlMapper } from './mappers/<%= nameCamel %>.mapper'
+import {<%= namePascal %>Model } from './models/<%= nameCamel %>.model'
+
+@Injectable()
+export class <%= namePascal %>SqlRepository implements I<%= namePascal %>Repository {
+	//#region constructor
+	 constructor() {}
+	
+}

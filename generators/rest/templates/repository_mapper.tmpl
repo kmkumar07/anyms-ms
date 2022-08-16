@@ -1,0 +1,9 @@
+import { Injectable } from '@nestjs/common'
+import { eDataSource, IDTO, IMapper, UniqueEntityID } from '@softobiz-df/shared-lib'
+import { <%= namePascal %>Model } from '../models/<%= nameCamel %>.model'
+
+@Injectable()
+export class <%= namePascal %>SqlMapper implements IMapper {
+	constructor() {}
+
+}

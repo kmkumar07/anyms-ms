@@ -1,0 +1,23 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: true
+- task: Npm@1
+  displayName: 'Softobiz CLI Tool publish'
+  inputs:
+    command: publish
+    verbose: true
+    publishRegistry: useFeed
+    publishFeed: '4d77d632-ea34-4401-ba85-5fe0ab719e49/080c4f0b-3193-4733-95b3-8e32d3a82182'

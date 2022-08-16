@@ -1,0 +1,15 @@
+import { Inject, Injectable } from '@nestjs/common'
+import { AppLoggerService, IRequestHandler, RecordIdModel, Result } from '@softobiz-df/shared-lib'
+import { <%= namePascal %> } from 'src/domain/user/<%= nameCamel %>'
+import { I<%= namePascal %>Repository } from 'src/infrastructure/data-access/irepositories/i<%= nameCamel %>.repository';
+import { <%= namePascal %>DeleteCommand } from './<%= namePascal %>-delete.cmd';
+import { <%= namePascal %>DeleteResponseType } from './<%= nameCamel %>-delete.response.type';
+
+@Injectable()
+export class <%= namePascal %>DeleteCommandHandler implements IRequestHandler<<%= namePascal %>DeleteCommand, <%= namePascal %>DeleteResponseType> {
+	private readonly _logger = AppLoggerService.getLogger(<%= namePascal %>CreateCommandHandler)
+
+	constructor(@Inject(I<%= namePascal %>Repository) private readonly _<%= nameCamel %>yRepo: I<%= namePascal %>Repository) {}
+
+	
+}

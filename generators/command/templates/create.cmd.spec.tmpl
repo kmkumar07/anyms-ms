@@ -1,0 +1,29 @@
+import { RecordIdModel, Result } from "@softobiz-df/shared-lib";
+import { I<%= namePascal %>Repository } from'../../../../../infrastructure/data-access/irepositories/i<%= nameCamel %>.repository';
+import { <%= namePascal %>CreateCommand } from "./<%= nameCamel %>.cmd";
+import { <%= namePascal %>CreateCommandHandler } from "./<%= nameCamel %>.cmd.handler";
+
+describe('<%= namePascal %>CreateCommandHandler', () => {
+  let commandHandler:<%= namePascal %>CreateCommandHandler,
+  _<%= nameCamel %>Repo:I<%= namePascal %>Repository
+
+	beforeEach(async () => {
+		_<%= nameCamel %>Repo = new (jest.fn<I<%= namePascal %>Repository, []>(() => Object.create(null) as I<%= namePascal %>Repository))()
+		commandHandler = new <%= namePascal %>CreateCommandHandler(_<%= nameCamel %>Repo)
+	})
+
+  it('should create program as <%= nameCamel %> filled all details', async () => {
+		_<%= nameCamel %>Repo.save = (inputProgram) => Promise.resolve(Result.ok(inputProgram))
+  
+    const command= new <%= namePascal %>CreateCommand({
+     name:'name'
+
+    })
+      const <%= nameCamel %> = await commandHandler.handle(command)
+      // console.log('resultFailed');
+      
+      expect(<%= nameCamel %>.isSuccess).toBe(true)
+      expect((<%= nameCamel %>.getValue() as RecordIdModel).id).toBeDefined()
+    })
+	
+})

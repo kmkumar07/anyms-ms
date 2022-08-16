@@ -1,0 +1,10 @@
+import { IDTO } from '@softobiz-df/shared-lib'
+
+export class <%= namePascal %>Dto implements IDTO {
+	
+
+
+	public constructor(init?: Partial<<%= namePascal %>Dto>) {
+		Object.assign(this, init)
+	}
+}

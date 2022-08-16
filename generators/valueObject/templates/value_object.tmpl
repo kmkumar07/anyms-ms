@@ -1,0 +1,37 @@
+
+import { ValueObject, Result } from "@softobiz-df/shared-lib";
+
+interface I<%= namePascal %>Props {
+	// isAuth: boolean
+	
+}
+/**
+ * The <%= namePascal %> Class
+ *
+ * @export
+ * @class <%= namePascal %>
+ * @extends {ValueObject<I<%= namePascal %>Props>}
+ */
+export class <%= namePascal %> extends ValueObject<I<%= namePascal %>Props> {
+    
+    /**
+     * Creates an instance of <%= namePascal %>.
+     * @param {I<%= namePascal %>Props} props
+     * @memberof <%= namePascal %>
+     */
+    private constructor(props: I<%= namePascal %>Props) {
+        super(props);
+    }
+
+    /**
+     * Creates and initializes object for the <%= namePascal %> Class using the private constructor after validations
+     *
+     * @static
+     * @param {I<%= namePascal %>Props} props
+     * @returns {Result<<%= namePascal %>>}
+     * @memberof <%= namePascal %>
+     */
+    public static create(props: I<%= namePascal %>Props): Result<<%= namePascal %>> {
+        throw new Error("NotImplemented: This method is not implemented");
+    }
+}

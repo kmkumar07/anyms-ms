@@ -1,0 +1,19 @@
+import { Module } from '@nestjs/common'
+import { <%= namePascal %>CreateCommandHandler } from './commands/create/<%= nameCamel %>-create.cmd.handler'
+import { Get<%= namePascal %>Query } from './queries/get-<%= nameCamel %>/get-<%= nameCamel %>.query'
+import { <%= namePascal%>CreateCommand } from './commands/create/<%= nameCamel%>-create.cmd'
+import {<%= namePascal%>Controller } from 'src/application/rest-api/admin.controller'
+import { Get<%= namePascal%>QueryHandler } from './queries/get-<%= nameCamel%>/get-<%= nameCamel%>.query.handler'
+import { <%= namePascal%>SqlRepositoryModule } from 'src/infrastructure/data-access/sql-repositories/<%= nameCamel%>-sql-repository.module'
+
+
+@Module({
+	imports: [<%= namePascal %>SqlRepositoryModule],
+	controllers: [<%= namePascal %>Controller],
+	providers: [
+		{ provide: <%= namePascal %>CreateCommand, useClass: <%= namePascal %>CreateCommandHandler },
+		{ provide: Get<%= namePascal %>Query, useClass: Get<%= namePascal %>QueryHandler },
+		
+	],
+})
+export class <%= namePascal %>Module {}

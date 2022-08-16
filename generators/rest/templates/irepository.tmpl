@@ -1,0 +1,6 @@
+import { IRepository, Result } from '@softobiz-df/shared-lib'
+import { <%= namePascal %> } from 'src/domain/user/<%= nameCamel %>'
+
+export interface I<%= namePascal %>Repository extends IRepository<<%= namePascal %>> {}
+
+export const I<%= namePascal %>Repository = Symbol('I<%= namePascal %>Repository')

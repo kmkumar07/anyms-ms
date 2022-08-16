@@ -1,0 +1,28 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { AppLoggerService, IRequestHandler, Result,UniqueEntityID} from '@softobiz-df/shared-lib';
+import { <%= namePascal %> } from 'src/domain/<%= nameCamel %>';
+import { I<%= namePascal %>Repository } from 'src/infrastructure/data-access/irepositories/i<%= nameCamel %>.repository';
+import { <%= namePascal %>Dto } from '../../dto/<%= nameCamel %>.dto';
+import { <%= namePascal %>Errors } from '../../<%= nameCamel %>.error';
+import { Get<%= namePascal %>Query } from './<%= nameCamel %>.query';
+import { Get<%= namePascal %>ReponseType } from './<%= nameCamel %>.response.type';
+
+@Injectable()
+export class Get<%= namePascal %>QueryHandler implements IRequestHandler<Get<%= namePascal %>Query, Get<%= namePascal %>ReponseType> {
+	private readonly _logger = AppLoggerService.getLogger(Get<%= namePascal %>QueryHandler)
+
+	constructor(@Inject(I<%= namePascal %>Repository) private readonly _<%= nameCamel %>Repo: I<%= namePascal %>Repository) {}
+
+	async handle(query: Get<%= namePascal %>Query, _token?: string): Promise<Get<%= namePascal %>ReponseType> {
+		
+		const <%= nameCamel %>: Result<<%= namePascal %>> = await this._<%= nameCamel %>Repo.findById(new UniqueEntityID(query.id))
+		if (<%= nameCamel %>.isFailure) return Result.fail(new <%= namePascal %>Errors.<%= namePascal %>NotFound())
+		const <%= nameCamel %>Value = <%= nameCamel %>.getValue()
+		const <%= nameCamel %>Dto = new <%= namePascal %>Dto({
+			name: <%= nameCamel %>Value.props.name,
+		
+		
+		})
+		return Result.ok(<%= nameCamel %>Dto)
+	}
+}

@@ -1,0 +1,26 @@
+{
+  "name": "generator-anyms-ms",
+  "version": "2.0.2",
+  "description": "",
+  "main": "app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "anyms-ms"
+  ],
+  "files": [
+    "app",
+    "controllers"
+  ],
+  "author": "Abin Dhinaman,Vishal Raj",
+  "license": "ISC",
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "change-case-all": "^1.0.14",
+    "ts-morph": "^15.1.0",
+    "yeoman-generator": "^5.6.1",
+    "yoeman-generator": "^0.0.1-security"
+  }
+}

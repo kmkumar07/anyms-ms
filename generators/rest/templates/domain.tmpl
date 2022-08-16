@@ -1,0 +1,24 @@
+import { AggregateRoot, eDataSource, GenericAppError, Result, UniqueEntityID } from '@softobiz-df/shared-lib'
+
+interface <%= namePascal %>Props {
+	name: string
+	company: string
+
+}
+export class <%= namePascal %> extends AggregateRoot<<%= namePascal %>Props> {
+
+  //#region member variables
+	//#endregion
+
+	//#region constants
+	//#endregion
+
+	//#region properties
+	//#endregion
+
+	//#region private methods
+	private constructor(props: <%= namePascal %>Props, id?: UniqueEntityID) {
+		super(props, id)
+	}
+	//#endregion
+}

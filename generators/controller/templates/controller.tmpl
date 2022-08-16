@@ -1,0 +1,33 @@
+import { Body, Controller, Get, Post, Query} from '@nestjs/common';
+import { IMediator, Result } from '@softobiz-df/shared-lib';
+import { <%= namePascal %>CreateCommand } from '../use-cases/<%= nameCamel %>/commands/<%= nameCamel %>/<%= nameCamel %>.cmd';
+import { <%= namePascal %>CreateResponseType } from '../use-cases/<%= nameCamel %>/commands/<%= nameCamel %>/<%= nameCamel %>.response.type';
+import { Get<%= namePascal %>Query } from '../use-cases/<%= nameCamel %>/queries/<%= nameCamel %>/<%= nameCamel %>.query';
+import { Get<%= namePascal %>ReponseType } from '../use-cases/<%= nameCamel %>/queries/<%= nameCamel %>/<%= nameCamel %>.response.type';
+import { ApiQuery, ApiTags } from '@nestjs/swagger';
+
+@ApiTags('<%= nameCamel %>')
+@Controller('<%= nameCamel %>')
+export class <%= namePascal %>Controller {
+	constructor(private readonly _mediator: IMediator) {}
+
+  
+	@Post('create')
+	async create<%= namePascal %>(@Body() payload: <%= namePascal %>CreateCommand): Promise<<%= namePascal %>CreateResponseType> {
+		return this._mediator.send<<%= namePascal %>CreateResponseType>(new <%= namePascal %>CreateCommand(payload))
+	}
+
+
+  @ApiQuery({name: 'id',description: 'Gets the Action id'})
+	@Get()
+	async get<%= namePascal %>(@Query("id") id): Promise<Get<%= namePascal %>ReponseType> {
+		return this._mediator.send<Get<%= namePascal %>ReponseType>(new Get<%= namePascal %>Query({ id }))
+
+	}
+
+	@Get("health")
+    async getHealth(): Promise<Result<string>> {
+        return Result.ok(" Service running ")
+
+    }
+}

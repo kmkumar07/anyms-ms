@@ -1,0 +1,10 @@
+import { IRequest } from '@softobiz-df/shared-lib'
+import { IsOptional } from 'class-validator'
+import { <%= namePascal %>DeleteResponseType } from './<%= nameCamel %>-delete.response.type'
+
+
+
+export class <%= namePascal %>DeleteCommand implements IRequest<<%= namePascal %>DeleteResponseType> {
+  constructor(public readonly id: string) {}
+
+}

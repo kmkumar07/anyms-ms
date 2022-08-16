@@ -1,0 +1,9 @@
+import { IRepository,Result} from '@softobiz-df/shared-lib';
+import { <%= namePascal %> } from 'src/domain/<%= nameCamel %>/<%= nameCamel %>';
+
+export interface I<%= namePascal %>Repository extends IRepository<<%= namePascal %>>{
+	findBy<%= namePascal %>(input: string): Promise<Result<<%= namePascal %>>>
+
+}
+
+export const I<%= namePascal %>Repository = Symbol('I<%= namePascal %>Repository')

@@ -1,0 +1,9 @@
+import { IRequest } from '@softobiz-df/shared-lib';
+import { <%= namePascal %>ReponseType } from './<%= nameSnake %>.response.type';
+
+export class <%= namePascal %>Query implements IRequest<<%= namePascal %>ReponseType> {
+		public id: string
+	public constructor(init?: Partial<<%= namePascal %>Query>) {
+		Object.assign(this, init)
+	}
+}

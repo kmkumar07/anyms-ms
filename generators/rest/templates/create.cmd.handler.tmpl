@@ -1,0 +1,15 @@
+import { Inject, Injectable } from '@nestjs/common'
+import { AppLoggerService, IRequestHandler, RecordIdModel, Result } from '@softobiz-df/shared-lib'
+import { <%= namePascal %> } from 'src/domain/user/<%= nameCamel %>'
+import { I<%= namePascal %>Repository } from 'src/infrastructure/data-access/irepositories/i<%= nameCamel %>.repository';
+import { <%= namePascal %>CreateCommand } from './<%= namePascal %>-create.cmd';
+import { <%= namePascal %>CreateResponseType } from './<%= nameCamel %>-create.response.type';
+
+@Injectable()
+export class <%= namePascal %>CreateCommandHandler implements IRequestHandler<<%= namePascal %>CreateCommand, <%= namePascal %>CreateResponseType> {
+	private readonly _logger = AppLoggerService.getLogger(<%= namePascal %>CreateCommandHandler)
+
+	constructor(@Inject(I<%= namePascal %>Repository) private readonly _<%= nameCamel %>yRepo: I<%= namePascal %>Repository) {}
+
+	
+}

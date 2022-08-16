@@ -1,0 +1,7 @@
+import { AppError, Result } from '@softobiz-df/shared-lib';
+import { <%= namePascal %>Errors } from '../../<%= nameCamel %>.error'
+import { <%= namePascal %>Dto } from '../../dto/<%= nameCamel %>.dto';
+
+
+
+export type Get<%= namePascal %>ReponseType = Result<<%= namePascal %>Dto | <%= namePascal %>Errors.<%= namePascal %>NotFound | AppError>

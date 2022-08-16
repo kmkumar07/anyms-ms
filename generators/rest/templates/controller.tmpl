@@ -1,0 +1,9 @@
+import { Body, Controller, Get, Post, Query } from '@nestjs/common'
+import { IMediator, RequestContextManager } from '@softobiz-df/shared-lib'
+
+@Controller("/<%= nameCamel %>")
+export class <%= namePascal %>Controller {
+	constructor(private readonly _mediator: IMediator) {}
+
+
+}

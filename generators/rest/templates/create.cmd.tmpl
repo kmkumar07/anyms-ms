@@ -1,0 +1,15 @@
+import { IRequest } from '@softobiz-df/shared-lib'
+import { IsOptional } from 'class-validator'
+import { <%= namePascal %>CreateResponseType } from './<%= nameCamel %>-create.response.type'
+
+
+
+export class <%= namePascal %>CreateCommand implements IRequest<<%= namePascal %>CreateResponseType> {
+	@IsOptional()
+	//public name: string
+  //public company: string
+  
+	public constructor(init?: Partial<<%= namePascal %>CreateCommand>) {
+		Object.assign(this, init)
+	}
+}

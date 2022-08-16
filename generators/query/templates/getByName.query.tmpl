@@ -1,0 +1,9 @@
+import { IRequest } from '@softobiz-df/shared-lib';
+import { Get<%= namePascal %>ReponseType } from './<%= nameCamel %>.response.type';
+
+export class Get<%= namePascal %>Query implements IRequest<Get<%= namePascal %>ReponseType> {
+		public id: string
+	public constructor(init?: Partial<Get<%= namePascal %>Query>) {
+		Object.assign(this, init)
+	}
+}

@@ -1,0 +1,26 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { AppLoggerService, IRequestHandler,RecordIdModel, Result} from '@softobiz-df/shared-lib';
+import { <%= namePascal %> } from '../../../../../domain/<%= nameCamel %>/<%= nameCamel %>';
+import { I<%= namePascal %>Repository } from '../../../../../infrastructure/data-access/irepositories/i<%= nameCamel %>.repository';
+import { <%= namePascal %>CreateCommand } from './<%= nameCamel %>.cmd';
+import { <%= namePascal %>CreateResponseType } from './<%= nameCamel %>.response.type';
+
+@Injectable()
+export class <%= namePascal %>CreateCommandHandler implements IRequestHandler<<%= namePascal %>CreateCommand, <%= namePascal %>CreateResponseType> {
+	private readonly _logger = AppLoggerService.getLogger(<%= namePascal %>CreateCommandHandler)
+
+	constructor(@Inject(I<%= namePascal %>Repository) private readonly _<%= nameCamel %>Repo: I<%= namePascal %>Repository) {}
+	async handle(commandOrQuery: <%= namePascal %>CreateCommand, token?: string): Promise<<%= namePascal %>CreateResponseType> {
+
+	const <%= nameCamel %> = <%= namePascal %>.create({
+			name: commandOrQuery.name,
+		})
+		if (<%= nameCamel %>.isFailure) return Result.fail(<%= nameCamel %>.errorValue())
+
+		const <%= nameCamel %>Value = <%= nameCamel %>.getValue()
+		await this._<%= nameCamel %>Repo.save(<%= nameCamel %>Value)
+
+		return Result.ok(new RecordIdModel({ id: <%= nameCamel %>Value.id.toString() }))
+	}
+
+	}

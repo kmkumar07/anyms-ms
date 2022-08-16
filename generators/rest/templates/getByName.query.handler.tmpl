@@ -1,0 +1,18 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { AppLoggerService, IRequestHandler, Result, UniqueEntityID } from '@softobiz-df/shared-lib';
+import { I<%= namePascal %>Repository } from 'src/infrastructure/data-access/irepositories/i<%= nameCamel %>.repository';
+import { Get<%= namePascal %>Query } from './get-<%= nameCamel %>.query';
+import { Get<%= namePascal %>ReponseType } from './get-<%= nameCamel %>.response.type';
+
+@Injectable()
+export class Get<%= namePascal %>QueryHandler implements IRequestHandler<Get<%= namePascal %>Query, Get<%= namePascal %>ReponseType> {
+	private readonly _logger = AppLoggerService.getLogger(Get<%= namePascal %>QueryHandler)
+
+	constructor(@Inject(I<%= namePascal %>Repository) private readonly _userRepo: I<%= namePascal %>Repository) {}
+
+	async handle(query: Get<%= namePascal %>Query, _token?: string): Promise<Get<%= namePascal %>ReponseType> {
+		
+	
+		return Result.ok()
+	}
+}

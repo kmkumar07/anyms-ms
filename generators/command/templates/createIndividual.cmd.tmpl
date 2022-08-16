@@ -1,0 +1,16 @@
+import { IRequest } from '@softobiz-df/shared-lib';
+import { IsOptional } from 'class-validator';
+import { <%= namePascal %>ResponseType } from './<%= nameSnake %>.response.type';
+import { ApiProperty } from '@nestjs/swagger';
+
+
+
+export class <%= namePascal %>Command implements IRequest<<%= namePascal %>ResponseType> {
+	@IsOptional()
+	@ApiProperty()
+	public name: string
+  
+	public constructor(init?: Partial<<%= namePascal %>Command>) {
+		Object.assign(this, init)
+	}
+}

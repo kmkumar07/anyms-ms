@@ -1,0 +1,35 @@
+import { Injectable } from '@nestjs/common';
+import { eDataSource, IDTO, IMapper, UniqueEntityID } from '@softobiz-df/shared-lib';
+import {  <%= namePascal %>  } from 'src/domain/<%= nameCamel %>/<%= nameCamel %>';
+import {  <%= namePascal %>Model } from '../models/<%= nameCamel %>.model';
+
+
+@Injectable()
+export class  <%= namePascal %>SqlMapper implements IMapper {
+	constructor() {}
+
+	toDomain(raw:  <%= namePascal %>Model): <%= namePascal %> {
+		return  <%= namePascal %>.create(
+			{
+				name: raw.name
+				
+			},
+			new UniqueEntityID(raw.uuid),
+			eDataSource.STORAGE,
+		).getValue()
+	}
+
+	toPersistence(input: <%= namePascal %>, curEntity?: <%= namePascal %>Model): <%= namePascal %>Model {
+		if (!curEntity) {
+			curEntity = new <%= namePascal %>Model()
+		}
+		curEntity.uuid = input.id.toString()
+		curEntity.name = input.props.name;
+		
+		//@todo:: improve mapping
+		return curEntity;
+	}
+	toDto(input: <%= namePascal %>Model): IDTO {
+		throw new Error('Method not implemented.')
+	}
+}
